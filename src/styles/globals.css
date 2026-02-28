@@ -1,1 +1,47 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-background: hsl(0, 0%, 100%);
+  --color-surface: hsl(0, 0%, 96%);
+  --color-surface-alt: hsl(0, 0%, 93%);
+  --color-border: hsl(0, 0%, 80%);
+  --color-border-alt: hsl(0, 0%, 73%);
+  --color-gray-text: hsl(0, 0%, 40%);
+  --color-gray-light: hsl(0, 0%, 85%);
+  --color-text: hsl(0, 0%, 10%);
+  --color-text-secondary: hsl(0, 0%, 26%);
+  --color-text-tertiary: hsl(0, 0%, 53%);
+  --color-heading: hsl(0, 0%, 20%);
+  --color-accent: hsl(253, 82%, 58%);
+  --color-accent-hover: hsl(253, 68%, 46%);
+  --color-accent-light: hsl(253, 100%, 94%);
+  --color-primary: hsl(267, 60%, 40%);
+  --color-primary-hover: hsl(267, 60%, 35%);
+  --color-link: hsl(210, 85%, 58%);
+  --color-link-hover: hsl(210, 80%, 50%);
+  --color-error: hsl(0, 83%, 58%);
+  --color-footer-bg: hsl(0, 0%, 20%);
+  --color-footer-hover: hsl(0, 0%, 80%);
+
+  --font-display: 'Ubuntu', sans-serif;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/ubuntu-medium-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/ubuntu-regular-400.woff2') format('woff2');
+}
+
+body {
+    font-family: var(--font-display); 
+} 
