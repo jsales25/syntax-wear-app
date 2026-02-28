@@ -2,7 +2,7 @@ function App() {
 
   return (
     <>
-    <p className="text-error">Hello World</p>
+    <p className="text-error font-medium"></p>
     </>
   )
 }
