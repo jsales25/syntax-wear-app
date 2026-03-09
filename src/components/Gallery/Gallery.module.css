@@ -62,25 +62,11 @@
   grid-area: sneaker-silver;
 }
 
-.imageCard {
-  /* Card de imagem, com bordas arredondadas e overflow escondido */
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.imageCard img {
-  /* Imagem ocupa todo o espaço do card */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .overlay {
   /* Overlay que aparece ao passar o mouse sobre o card */
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(149, 148, 148, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;

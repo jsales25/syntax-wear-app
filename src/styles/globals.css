@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-background: hsl(0, 0%, 100%);
@@ -49,5 +49,15 @@
 }
 
 body {
-    font-family: var(--font-display); 
-} 
+    font-family: var(--font-display);
+}
+
+/* Esconde scrollbar no Chrome, Safari e Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Esconde scrollbar no Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
