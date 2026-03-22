@@ -24,10 +24,9 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  // substitui os vários ../../ por um único @
   "baseUrl": ".",
   "paths": {
-    "@/*": ["src/#"]
+    "@/*": ["src/*"]
   },
   "include": ["src"]
 }
