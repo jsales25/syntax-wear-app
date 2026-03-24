@@ -11,9 +11,9 @@ export interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  {name: "Masculino", href: "/products"},
-  {name: "Feminino", href: "/products"},
-  {name: "Outlet", href: "/products"},
+  {name: "Masculino", href: "/products/category/masculino"},
+  {name: "Feminino", href: "/products/category/feminino"},
+  {name: "Outlet", href: "/products/category/outlet"},
 ]
 
 export const Header = () => {
@@ -47,9 +47,9 @@ export const Header = () => {
                 <MenuMobile navLinks={navLinks}/>
               </li>
               <li className="hidden lg:block">
-                <a href="#">
+                <Link to="/sign-up">
                   <img src={IconUser} alt="Ícone de login" />
-                </a>
+                </Link>
               </li>
               <li className="hidden lg:block">
                 <Link to="/about">
