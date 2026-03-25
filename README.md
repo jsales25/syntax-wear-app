@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# 👕 Syntax Wear App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **Syntax Wear** é um protótipo moderno de uma loja virtual (e-commerce) focado em moda urbana e calçados. O projeto foi construído utilizando as ferramentas mais atuais do ecossistema React para oferecer uma experiência de usuário fluida, rápida e responsiva.
 
-Currently, two official plugins are available:
+Este projeto foi desenvolvido como parte de um portfólio front-end, demonstrando boas práticas de organização de código, roteamento avançado e estilização moderna.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📷 Screenshot
 
-## React Compiler
+![Design do projeto](./src/assets/design/desktop-design.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔗 Links
 
-## Expanding the ESLint configuration
+- Solução no Repositório: [Acesse o repositório aqui](https://github.com/jsales25/syntax-wear-app.git)
+- Live Site: [Acesse o site aqui](https://syntax-wear-app-chi.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Este projeto utiliza o que há de mais moderno no desenvolvimento web:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React 19:** A versão mais recente da biblioteca para criação de interfaces.
+- **Vite 7:** Uma ferramenta de build extremamente rápida para o desenvolvimento.
+- **TypeScript:** Adiciona tipagem ao JavaScript, ajudando a evitar erros comuns e facilitando a manutenção.
+- **Tailwind CSS 4:** Framework de estilização baseado em utilitários que permite criar designs incríveis rapidamente.
+- **TanStack Router:** Um roteador poderoso para React que garante navegação rápida e segura entre as páginas.
+- **React Hook Form + Zod:** Utilizados para criar formulários inteligentes com validações automáticas.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Funcionalidades
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **🛒 Carrinho de Compras:** Adição e remoção de produtos com gerenciamento de estado via Context API.
+- **🗺️ Roteamento Dinâmico:** Páginas de produtos, categorias e institucional (Sobre Nós, Nossas Lojas) organizadas de forma eficiente.
+- **📝 Formulários com Validação:** Login, Cadastro e consulta de CEP com feedback em tempo real para o usuário.
+- **📱 Design Responsivo:** Interface que se adapta perfeitamente a dispositivos móveis e desktops.
+- **🔍 Galeria de Imagens:** Exibição detalhada dos produtos.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Como rodar o projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Para rodar este projeto no seu computador, você precisará ter o [Node.js](https://nodejs.org/) instalado.
+
+### Passos:
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/seu-usuario/syntax-wear-app.git
+    ```
+
+2.  **Entre na pasta do projeto:**
+    ```bash
+    cd syntax-wear-app
+    ```
+
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+4.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Acesse no navegador:**
+    O terminal mostrará um endereço (geralmente `http://localhost:5173`). Abra esse link para ver o projeto funcionando!
+
+## 📂 Estrutura de Pastas Principal
+
+- `src/assets`: Imagens, ícones e fontes do projeto.
+- `src/components`: Componentes reutilizáveis da interface (Botões, Cards, Header, Footer).
+- `src/contexts`: Gerenciamento de estado global (ex: Carrinho).
+- `src/pages`: As diferentes telas do aplicativo organizadas por rotas.
+- `src/styles`: Configurações de cores e estilos globais com Tailwind CSS.
+- `src/utils`: Funções de utilidade (como formatar moeda ou validar CPF).
+
+## 📝 Licença
+
+Este projeto é para fins de estudo e portfólio. Sinta-se à vontade para explorar e aprender com ele!
+## 👩‍💻 Autor
+
+**Julia Sales**
+
+- **GitHub:** [Acesse o GitHub da autora aqui](https://github.com/jsales25)
+- **Frontend Mentor:** [Acesse o Frontend Mentor da autora aqui](https://www.frontendmentor.io/profile/jsales25)
+- **LinkedIn:** [Acesse o LinkedIn da autora aqui](https://www.linkedin.com/in/julia-sales-developer/)
+
+---
+
+<div align="center">
+  Feito com 💜 por Julia Sales
+</div>
+
