@@ -11,6 +11,9 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const { cart, removeFromCart, incrementInCart, decrementInCart } =
     useContext(CartContext);
 
+  const getProductImage = (product: { images?: string[]; image?: string }) =>
+    product.images?.[0] ?? product.image ?? "";
+
   return (
     <>
       {/* Overlay */}
@@ -45,7 +48,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
 
                 <div className="flex gap-4">
                   <img
-                    src={product.image}
+                    src={getProductImage(product)}
                     alt={product.name}
                     className="w-24 h-24 md:w-32 md:h-32"
                   />
