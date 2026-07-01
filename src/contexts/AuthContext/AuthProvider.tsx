@@ -29,9 +29,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         const data = await response.json();
         setUser(data.user);
         setIsAuthenticated(true);
-      
+
         console.log(data.user);
-        
       } catch (error) {
         console.error("Erro ao buscar perfil do usuário:", error);
         setUser(null);
@@ -62,14 +61,31 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setIsAuthenticated(true);
   }
 
-  async function register(data: RegisterInput): Promise<void> {}
+  async function signUp(data: RegisterInput): Promise<void> {
+    const response = await fetch("http://localhost:3000/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "Erro ao registrar usuário");
+    }
+
+    setUser(result.user);
+    setIsAuthenticated(true);
+  }
 
   async function signOut(): Promise<void> {
     try {
       await fetch("http://localhost:3000/auth/signout", {
         method: "POST",
         credentials: "include", // faz com que os cookies sejam enviados junto com a requisição
-      })
+      });
 
       setUser(null);
       setIsAuthenticated(false);
@@ -84,14 +100,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       credentials: "include", // faz com que os cookies sejam enviados junto com a requisição
       headers: {
         "Content-Type": "application/json",
-       },
+      },
       body: JSON.stringify({ credential }),
     });
 
     const result = await response.json();
 
     console.log("result:", result);
-    
+
     if (!response.ok || !result.user) {
       throw new Error(result.message || "Erro ao fazer login com Google");
     }
@@ -104,9 +120,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     user,
     isAuthenticated,
     signIn,
-    register,
+    signUp,
     signOut,
-    signInWithGoogle
+    signInWithGoogle,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
