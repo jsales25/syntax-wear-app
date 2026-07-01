@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { CartContext } from "../../contexts/CartContext/CartContext";
 import { formatCurrency } from "../../utils/format-currency";
 
 interface CartDrawerProps {
@@ -10,9 +10,6 @@ interface CartDrawerProps {
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const { cart, removeFromCart, incrementInCart, decrementInCart } =
     useContext(CartContext);
-
-  const getProductImage = (product: { images?: string[]; image?: string }) =>
-    product.images?.[0] ?? product.image ?? "";
 
   return (
     <>
@@ -48,7 +45,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
 
                 <div className="flex gap-4">
                   <img
-                    src={getProductImage(product)}
+                    src={product.images[0]}
                     alt={product.name}
                     className="w-24 h-24 md:w-32 md:h-32"
                   />

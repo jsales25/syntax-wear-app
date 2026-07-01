@@ -66,13 +66,13 @@ const AppProductsCategoryCategoryRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof AppIndexRoute
   '/sign-in': typeof AuthSignInRoute
   '/sign-up': typeof AuthSignUpRoute
+  '/': typeof AppIndexRoute
   '/products/$productId': typeof AppProductsProductIdRoute
-  '/about/': typeof AppAboutIndexRoute
-  '/our-stores/': typeof AppOurStoresIndexRoute
-  '/products/': typeof AppProductsIndexRoute
+  '/about': typeof AppAboutIndexRoute
+  '/our-stores': typeof AppOurStoresIndexRoute
+  '/products': typeof AppProductsIndexRoute
   '/products/category/$category': typeof AppProductsCategoryCategoryRoute
 }
 export interface FileRoutesByTo {
@@ -100,13 +100,13 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/sign-in'
     | '/sign-up'
+    | '/'
     | '/products/$productId'
-    | '/about/'
-    | '/our-stores/'
-    | '/products/'
+    | '/about'
+    | '/our-stores'
+    | '/products'
     | '/products/category/$category'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -142,7 +142,7 @@ declare module '@tanstack/react-router' {
     '/_app': {
       id: '/_app'
       path: ''
-      fullPath: '/'
+      fullPath: ''
       preLoaderRoute: typeof AppLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -170,21 +170,21 @@ declare module '@tanstack/react-router' {
     '/_app/products/': {
       id: '/_app/products/'
       path: '/products'
-      fullPath: '/products/'
+      fullPath: '/products'
       preLoaderRoute: typeof AppProductsIndexRouteImport
       parentRoute: typeof AppLayoutRoute
     }
     '/_app/our-stores/': {
       id: '/_app/our-stores/'
       path: '/our-stores'
-      fullPath: '/our-stores/'
+      fullPath: '/our-stores'
       preLoaderRoute: typeof AppOurStoresIndexRouteImport
       parentRoute: typeof AppLayoutRoute
     }
     '/_app/about/': {
       id: '/_app/about/'
       path: '/about'
-      fullPath: '/about/'
+      fullPath: '/about'
       preLoaderRoute: typeof AppAboutIndexRouteImport
       parentRoute: typeof AppLayoutRoute
     }

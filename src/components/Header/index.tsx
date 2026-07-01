@@ -1,10 +1,12 @@
 import Logo from "@/assets/images/logo.png";
 import IconUser from "@/assets/images/icon-user.png";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { MenuMobile } from "../MenuMobile";
 import { CartButton } from "../CartButton";
 import { CartDrawer } from "../CartDrawer";
 import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext/AuthContext";
+import { PiSignOutLight } from "react-icons/pi";
 
 export interface NavLink {
   name: string;
@@ -18,8 +20,17 @@ const navLinks: NavLink[] = [
 ];
 
 export const Header = () => {
-
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
+
+  const { isAuthenticated, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error("Erro ao fazer sign out:", error);
+    }
+  };
 
   return (
     <div className="relative">
@@ -51,12 +62,22 @@ export const Header = () => {
                 <MenuMobile navLinks={navLinks} />
               </li>
               <li className="hidden lg:block">
-                <Link to="/sign-up">
-                  <img src={IconUser} alt="Ícone de login" />
-                </Link>
+                {isAuthenticated ? (
+                  <button
+                    onClick={handleSignOut}
+                    className="cursor-pointer hover:opacity-70 transition-opacity flex items-center gap-2"
+                  >
+                    Sair
+                    <PiSignOutLight className="w-6 h-6"></PiSignOutLight>
+                  </button>
+                ) : (
+                  <Link to="/sign-up">
+                    <img src={IconUser} alt="Ícone de login" />
+                  </Link>
+                )}
               </li>
               <li>
-                <CartButton onClick={() => setCartIsOpen(true)}/>
+                <CartButton onClick={() => setCartIsOpen(true)} />
               </li>
             </ul>
           </nav>

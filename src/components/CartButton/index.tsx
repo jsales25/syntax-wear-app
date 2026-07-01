@@ -1,6 +1,6 @@
 import IconCart from "@/assets/images/icon-cart.png";
 import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { CartContext } from "../../contexts/CartContext/CartContext";
 
 interface CardButtonProps {
     onClick?: () => void;

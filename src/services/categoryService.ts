@@ -1,23 +1,21 @@
 import { notFound } from "@tanstack/react-router";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
-
 export async function getCategoryByName(name: string) {
-  const params = new URLSearchParams({ page: "1", limit: "1", search: name });
+    const params = new URLSearchParams({ page: '1', limit: '1', search: name });
 
-  const response = await fetch(
-    `${API_BASE_URL}/categories?${params.toString()}`,
-  );
+    console.log(`http://localhost:3000/categories?${params.toString()}`);
 
-  if (!response.ok) {
-    throw notFound();
-  }
+    const response = await fetch(`http://localhost:3000/categories?${params.toString()}`);
 
-  const result = await response.json();
+    if (!response.ok) {
+        throw notFound();
+    }
 
-  if (!result.data || result.data.length === 0) {
-    throw notFound();
-  }
+    const result = await response.json();
 
-  return result.data[0];
+    if (!result.data || result.data.length === 0) {
+        throw notFound();
+    }
+
+    return result.data[0];
 }
