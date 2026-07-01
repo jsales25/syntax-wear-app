@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext/CartContext";
 
 interface CardButtonProps {
-    onClick?: () => void;
+  onClick?: () => void;
 }
 
 export const CartButton = ({ onClick }: CardButtonProps) => {
